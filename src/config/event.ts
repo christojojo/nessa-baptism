@@ -90,7 +90,7 @@ export const eventConfig: BaptismEventConfig = {
     childName: "Nessa Sanju",
     dateOfBirth: "04/07/2026",
     dateOfBirthFormatted: "July 4, 2026",
-    photoSrc: "/images/IMG-20260928-WA0073.jpg.jpeg",
+    photoSrc: "/images/nessa-hero.jpg",
     galleryPhotos: {
       collage: "/images/nessa-collage.jpg",
       family: "/images/nessa-family.jpg",
