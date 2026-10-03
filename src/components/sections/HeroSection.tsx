@@ -40,86 +40,59 @@ export function HeroSection() {
         we invite you to celebrate
       </motion.p>
 
-      {/* Heirloom Baby Photograph - Arch Portrait Presentation (True Mathematical Centering) */}
-      <div className="w-full flex justify-center items-center my-1.5 mb-5 sm:mb-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative flex items-center justify-center mx-auto w-fit"
-        >
-          {/* Soft botanical accent sprig framing top-right */}
-          <div 
-            className="absolute -top-3 -right-3 text-[#8FA58A]/70 pointer-events-none z-10" 
-            aria-hidden="true"
-          >
-            <BotanicalSprig variant="sprig" className="w-7 h-7 sm:w-8 sm:h-8 rotate-45" />
-          </div>
-
-          {/* Soft botanical accent sprig framing bottom-left */}
-          <div 
-            className="absolute -bottom-2.5 -left-2.5 text-[#8FA58A]/60 pointer-events-none z-10" 
-            aria-hidden="true"
-          >
-            <BotanicalSprig variant="sprig" className="w-6 h-6 sm:w-7 sm:h-7 -rotate-135" />
-          </div>
-
-          {/* Outer soft ambient aura */}
-          <div 
-            className="absolute -inset-2.5 rounded-t-[112px] sm:rounded-t-[124px] md:rounded-t-[134px] rounded-b-[32px] sm:rounded-b-[36px] md:rounded-b-[38px] bg-gradient-to-b from-[#C9A96E]/12 via-[#DDB9B2]/10 to-transparent blur-md -z-10" 
-            aria-hidden="true" 
+      {/* Hero Artwork Showcase (Preserves Complete Original Composition) */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.98 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        className="w-full max-w-[340px] sm:max-w-[390px] md:max-w-[430px] mx-auto my-3 sm:my-5"
+      >
+        <div className="relative w-full aspect-[4/5]">
+          <Image
+            src={eventConfig.baby.photoSrc}
+            alt={`Holy Baptism celebration of ${eventConfig.baby.childName}`}
+            fill
+            priority
+            quality={95}
+            sizes="(max-width: 640px) 90vw, (max-width: 768px) 390px, 430px"
+            className="object-contain"
           />
+        </div>
+      </motion.div>
 
-          {/* Arch Heirloom Frame Container */}
-          <div className="relative w-[204px] h-[250px] sm:w-[228px] sm:h-[280px] md:w-[248px] md:h-[304px] p-2 sm:p-2.5 bg-[#FFFFFF]/90 rounded-t-[102px] sm:rounded-t-[114px] md:rounded-t-[124px] rounded-b-[22px] sm:rounded-b-[26px] md:rounded-b-[28px] shadow-[0_12px_32px_rgba(47,52,48,0.06)] border border-[#C9A96E]/30 flex flex-col items-center mx-auto">
-            {/* Inner hairline gold border */}
-            <div className="relative w-full h-full rounded-t-[94px] sm:rounded-t-[104px] md:rounded-t-[114px] rounded-b-[16px] sm:rounded-b-[18px] md:rounded-b-[20px] overflow-hidden border border-[#C9A96E]/20 bg-[#F3EEE7]">
-              <Image
-                src={eventConfig.baby.photoSrc}
-                alt={`Portrait of baby ${eventConfig.baby.childName}`}
-                fill
-                priority
-                quality={95}
-                sizes="(max-width: 640px) 210px, (max-width: 768px) 235px, 255px"
-                className="object-cover object-[64%_20%]"
-              />
-            </div>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Baby's Name - The Strongest Typographic Element */}
+      {/* Minimal Supporting Baptism Text Below Artwork */}
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.9, delay: 0.3 }}
-        className="space-y-1.5 sm:space-y-2 mb-2 sm:mb-3"
+        transition={{ duration: 0.9, delay: 0.25 }}
+        className="space-y-1.5 sm:space-y-2 mt-1 sm:mt-2 mb-2 sm:mb-3"
       >
-        <h1 className="font-serif text-[1.75rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] text-[#2F3430] font-normal tracking-[0.16em] sm:tracking-[0.22em] uppercase leading-none select-none">
-          {eventConfig.baby.childName}
+        {/* Semantic H1 for screen readers and SEO without visually repeating the name */}
+        <h1 className="sr-only">
+          Holy Baptism of {eventConfig.baby.childName}
         </h1>
         
         {/* Smaller elegant Baptism subtitle */}
         <div className="flex items-center justify-center gap-2.5 pt-0.5">
           <div className="h-[1px] w-6 sm:w-10 bg-gradient-to-r from-transparent to-[#C9A96E]/50" />
-          <p className="font-serif italic text-base sm:text-lg text-[#8FA58A] tracking-widest font-light">
-            Baptism
+          <p className="font-serif italic text-base sm:text-lg md:text-xl text-[#8FA58A] tracking-[0.16em] font-light">
+            Holy Baptism
           </p>
           <div className="h-[1px] w-6 sm:w-10 bg-gradient-to-l from-transparent to-[#C9A96E]/50" />
         </div>
 
         {/* Subtle, understated Date of Birth */}
         {eventConfig.baby.dateOfBirth && (
-          <p className="font-sans text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#2F3430]/50 font-light pt-1">
+          <p className="font-sans text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#2F3430]/50 font-light pt-0.5">
             Born {eventConfig.baby.dateOfBirthFormatted || eventConfig.baby.dateOfBirth}
           </p>
         )}
       </motion.div>
 
       {/* Subtle flourish separator */}
-      <BotanicalSprig variant="divider" className="mt-5 sm:mt-6 mb-1" />
+      <BotanicalSprig variant="divider" className="mt-4 sm:mt-5 mb-1" />
     </section>
   );
 }

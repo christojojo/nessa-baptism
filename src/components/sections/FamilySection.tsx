@@ -17,16 +17,16 @@ export function FamilySection() {
       className="relative py-14 sm:py-20 px-4 sm:px-6 max-w-xl mx-auto text-center"
     >
       {/* Asymmetrical Faint Guardian Angel Watermark Illustration */}
-      <div 
-        className="absolute top-8 right-2 sm:right-6 pointer-events-none opacity-25 select-none -z-10" 
+      <div
+        className="absolute top-8 right-2 sm:right-6 pointer-events-none opacity-25 select-none -z-10"
         aria-hidden="true"
       >
         <GuardianAngelOrnament size={115} />
       </div>
 
       {/* Opposite Subtle Olive Sprig Accent */}
-      <div 
-        className="absolute bottom-10 left-2 sm:left-6 pointer-events-none opacity-20 select-none -z-10" 
+      <div
+        className="absolute bottom-10 left-2 sm:left-6 pointer-events-none opacity-20 select-none -z-10"
         aria-hidden="true"
       >
         <BotanicalSprig variant="sprig" className="w-10 h-10 -rotate-45" />
@@ -75,7 +75,7 @@ export function FamilySection() {
         </div>
 
         {/* Godparents Group */}
-        <div className="space-y-2">
+        {/* <div className="space-y-2">
           <span className="font-sans text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-[#8FA58A] font-medium block">
             Together with
           </span>
@@ -85,7 +85,7 @@ export function FamilySection() {
           <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#2F3430]/45 font-light block">
             Godparents
           </span>
-        </div>
+        </div> */}
       </motion.div>
     </section>
   );
