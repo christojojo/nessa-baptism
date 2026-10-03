@@ -12,7 +12,7 @@ export function HeroSection() {
     <section 
       id="hero"
       aria-label="Invitation Hero"
-      className="relative flex flex-col items-center justify-center pt-6 sm:pt-8 md:pt-10 pb-8 sm:pb-12 px-4 sm:px-6 text-center max-w-xl mx-auto"
+      className="relative flex flex-col items-center justify-center pt-10 sm:pt-14 md:pt-16 pb-8 sm:pb-12 px-4 sm:px-6 text-center max-w-xl mx-auto"
     >
       {/* Top tiny sacred symbol & label */}
       <motion.div
@@ -47,7 +47,7 @@ export function HeroSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative flex items-center justify-center mx-auto"
+          className="relative flex items-center justify-center mx-auto w-fit"
         >
           {/* Soft botanical accent sprig framing top-right */}
           <div 
@@ -67,22 +67,22 @@ export function HeroSection() {
 
           {/* Outer soft ambient aura */}
           <div 
-            className="absolute -inset-2.5 rounded-t-[110px] sm:rounded-t-[130px] rounded-b-[30px] sm:rounded-b-[36px] bg-gradient-to-b from-[#C9A96E]/12 via-[#DDB9B2]/10 to-transparent blur-md -z-10" 
+            className="absolute -inset-2.5 rounded-t-[112px] sm:rounded-t-[124px] md:rounded-t-[134px] rounded-b-[32px] sm:rounded-b-[36px] md:rounded-b-[38px] bg-gradient-to-b from-[#C9A96E]/12 via-[#DDB9B2]/10 to-transparent blur-md -z-10" 
             aria-hidden="true" 
           />
 
           {/* Arch Heirloom Frame Container */}
-          <div className="relative w-44 h-56 sm:w-52 sm:h-66 md:w-56 md:h-72 p-2 sm:p-2.5 bg-[#FFFFFF]/90 rounded-t-[100px] sm:rounded-t-[120px] rounded-b-[24px] sm:rounded-b-[28px] shadow-[0_12px_32px_rgba(47,52,48,0.06)] border border-[#C9A96E]/30 flex flex-col items-center mx-auto">
+          <div className="relative w-[204px] h-[250px] sm:w-[228px] sm:h-[280px] md:w-[248px] md:h-[304px] p-2 sm:p-2.5 bg-[#FFFFFF]/90 rounded-t-[102px] sm:rounded-t-[114px] md:rounded-t-[124px] rounded-b-[22px] sm:rounded-b-[26px] md:rounded-b-[28px] shadow-[0_12px_32px_rgba(47,52,48,0.06)] border border-[#C9A96E]/30 flex flex-col items-center mx-auto">
             {/* Inner hairline gold border */}
-            <div className="relative w-full h-full rounded-t-[92px] sm:rounded-t-[112px] rounded-b-[18px] sm:rounded-b-[22px] overflow-hidden border border-[#C9A96E]/20 bg-[#F3EEE7]">
+            <div className="relative w-full h-full rounded-t-[94px] sm:rounded-t-[104px] md:rounded-t-[114px] rounded-b-[16px] sm:rounded-b-[18px] md:rounded-b-[20px] overflow-hidden border border-[#C9A96E]/20 bg-[#F3EEE7]">
               <Image
                 src={eventConfig.baby.photoSrc}
                 alt={`Portrait of baby ${eventConfig.baby.childName}`}
                 fill
                 priority
                 quality={95}
-                sizes="(max-width: 640px) 450px, 600px"
-                className="object-cover object-[50%_12%]"
+                sizes="(max-width: 640px) 210px, (max-width: 768px) 235px, 255px"
+                className="object-cover object-[64%_20%]"
               />
             </div>
           </div>

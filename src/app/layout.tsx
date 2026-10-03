@@ -24,6 +24,15 @@ export const metadata: Metadata = {
   description: `With joyful hearts, we invite you to celebrate the Holy Sacrament of Baptism of ${eventConfig.baby.childName}.`,
   keywords: ["Baptism", eventConfig.baby.childName, "Christening", eventConfig.baptism.churchName, eventConfig.baptism.state],
   authors: [{ name: `${eventConfig.parents.father} & ${eventConfig.parents.mother}` }],
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/favicon.png", type: "image/png" },
+    ],
+  },
   openGraph: {
     title: `Holy Baptism of ${eventConfig.baby.childName} | Invitation`,
     description: `With joyful hearts, we invite you to celebrate the Holy Sacrament of Baptism of ${eventConfig.baby.childName} on ${eventConfig.baptism.date}.`,
