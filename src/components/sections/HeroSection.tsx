@@ -48,7 +48,7 @@ export function HeroSection() {
         transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         className="w-full max-w-[340px] sm:max-w-[390px] md:max-w-[430px] mx-auto my-3 sm:my-5"
       >
-        <div className="relative w-full aspect-[4/5]">
+        <div className="relative w-full aspect-square overflow-hidden">
           <Image
             src={eventConfig.baby.photoSrc}
             alt={`Holy Baptism celebration of ${eventConfig.baby.childName}`}
@@ -56,7 +56,7 @@ export function HeroSection() {
             priority
             quality={95}
             sizes="(max-width: 640px) 90vw, (max-width: 768px) 390px, 430px"
-            className="object-contain"
+            className="object-cover object-center"
           />
         </div>
       </motion.div>
