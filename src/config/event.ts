@@ -18,6 +18,7 @@ export interface BaptismEventConfig {
   parents: {
     father: string;
     mother: string;
+    photoSrc?: string;
   };
   godparents: {
     godfather: string;
@@ -99,6 +100,7 @@ export const eventConfig: BaptismEventConfig = {
   parents: {
     father: "Sanju P Johnson",
     mother: "Neethu Sanju",
+    photoSrc: "/images/nessa-parents-closing.jpg",
   },
   godparents: {
     godfather: "Johnson P A",

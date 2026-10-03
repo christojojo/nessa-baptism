@@ -80,11 +80,10 @@ export function HeroSection() {
                 alt={`Portrait of baby ${eventConfig.baby.childName}`}
                 fill
                 priority
-                sizes="(max-width: 640px) 180px, 230px"
-                className="object-cover object-[50%_12%] filter contrast-[1.01] brightness-[1.01]"
+                quality={95}
+                sizes="(max-width: 640px) 450px, 600px"
+                className="object-cover object-[50%_12%]"
               />
-              {/* Soft vignette overlay */}
-              <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-[#2F3430]/10 pointer-events-none" />
             </div>
           </div>
         </motion.div>

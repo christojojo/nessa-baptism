@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Dove } from "../decorations/Dove";
+import { GuardianAngelBlessing } from "../decorations/GuardianAngelBlessing";
 import { eventConfig } from "@/config/event";
 
 export function BibleVerseSection() {
@@ -25,13 +25,13 @@ export function BibleVerseSection() {
         transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
         className="flex flex-col items-center"
       >
-        {/* Sacred Peace Dove */}
-        <div className="mb-6 opacity-75">
-          <Dove size={26} className="text-[#C9A96E]" />
+        {/* Classical Christian Line-Art Angel Blessing Motive */}
+        <div className="mb-4 sm:mb-5 opacity-40 hover:opacity-50 transition-opacity pointer-events-none select-none">
+          <GuardianAngelBlessing size={105} />
         </div>
 
         {/* Illuminated quote opening mark */}
-        <div className="font-serif text-[#C9A96E]/40 text-4xl leading-none select-none mb-3" aria-hidden="true">
+        <div className="font-serif text-[#C9A96E]/40 text-3xl sm:text-4xl leading-none select-none mb-2" aria-hidden="true">
           &ldquo;
         </div>
 

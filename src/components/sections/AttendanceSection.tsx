@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { Check } from "lucide-react";
 import { eventConfig } from "@/config/event";
 
 export function AttendanceSection() {
@@ -37,7 +38,7 @@ export function AttendanceSection() {
           {attendance.description}
         </p>
 
-        {/* Two Understated Attendance Buttons */}
+        {/* Two Refined Stationery Attendance Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none mx-auto">
           <button
             id="attendance-yes-btn"
@@ -45,13 +46,18 @@ export function AttendanceSection() {
             onClick={() => setSelectedResponse("yes")}
             aria-pressed={selectedResponse === "yes"}
             aria-label={attendance.yesButtonText}
-            className={`w-full sm:w-auto min-w-[200px] min-h-[46px] px-6 sm:px-7 py-3 rounded-full text-[11px] sm:text-xs tracking-[0.2em] uppercase font-sans font-medium transition-all duration-200 flex items-center justify-center cursor-pointer active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#8FA58A] focus:ring-offset-2 focus:ring-offset-[#FAF7F2] ${
+            className={`w-full sm:w-auto min-w-[210px] min-h-[46px] px-6 sm:px-7 py-3 rounded-full text-[11px] sm:text-xs tracking-[0.2em] uppercase font-sans transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#8FA58A] focus:ring-offset-1 ${
               selectedResponse === "yes"
-                ? "bg-[#8FA58A]/15 text-[#2F3430] border border-[#8FA58A] shadow-xs ring-1 ring-[#8FA58A]/40 font-semibold"
-                : "bg-white/90 hover:bg-white text-[#2F3430] border border-[#C9A96E]/40 hover:border-[#8FA58A] shadow-xs"
+                ? "bg-[#8FA58A]/10 text-[#2F3430] border border-[#8FA58A]/60 font-medium"
+                : "bg-white/80 hover:bg-white text-[#2F3430]/80 hover:text-[#2F3430] border border-[#C9A96E]/35 hover:border-[#8FA58A]/50 font-normal"
             }`}
           >
-            <span>{attendance.yesButtonText}</span>
+            <span className="inline-flex items-center gap-1.5">
+              {selectedResponse === "yes" && (
+                <Check className="w-3.5 h-3.5 text-[#8FA58A] stroke-[2]" aria-hidden="true" />
+              )}
+              <span>{attendance.yesButtonText}</span>
+            </span>
           </button>
 
           <button
@@ -60,18 +66,23 @@ export function AttendanceSection() {
             onClick={() => setSelectedResponse("no")}
             aria-pressed={selectedResponse === "no"}
             aria-label={attendance.noButtonText}
-            className={`w-full sm:w-auto min-w-[200px] min-h-[46px] px-6 sm:px-7 py-3 rounded-full text-[11px] sm:text-xs tracking-[0.2em] uppercase font-sans font-medium transition-all duration-200 flex items-center justify-center cursor-pointer active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#DDB9B2] focus:ring-offset-2 focus:ring-offset-[#FAF7F2] ${
+            className={`w-full sm:w-auto min-w-[210px] min-h-[46px] px-6 sm:px-7 py-3 rounded-full text-[11px] sm:text-xs tracking-[0.2em] uppercase font-sans transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#C9A96E] focus:ring-offset-1 ${
               selectedResponse === "no"
-                ? "bg-stone-100 text-[#2F3430] border border-[#C9A96E]/60 ring-1 ring-[#C9A96E]/30 font-semibold"
-                : "bg-transparent hover:bg-white/60 text-[#2F3430]/75 hover:text-[#2F3430] border border-[#2F3430]/20 hover:border-[#2F3430]/40"
+                ? "bg-[#FAF7F2] text-[#2F3430]/80 border border-[#C9A96E]/50 font-medium"
+                : "bg-transparent hover:bg-white/50 text-[#2F3430]/65 hover:text-[#2F3430] border border-[#2F3430]/15 hover:border-[#2F3430]/30 font-normal"
             }`}
           >
-            <span>{attendance.noButtonText}</span>
+            <span className="inline-flex items-center gap-1.5">
+              {selectedResponse === "no" && (
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C9A96E]/80" aria-hidden="true" />
+              )}
+              <span>{attendance.noButtonText}</span>
+            </span>
           </button>
         </div>
 
         {/* Immediate Inline Tasteful Confirmation Feedback */}
-        <div className="min-h-[52px] flex items-center justify-center mt-5">
+        <div className="min-h-[64px] flex items-center justify-center mt-5">
           <AnimatePresence mode="wait">
             {selectedResponse && (
               <motion.div
@@ -84,13 +95,19 @@ export function AttendanceSection() {
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="flex flex-col items-center px-4"
               >
+                <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#8FA58A]/10 border border-[#8FA58A]/25 mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#8FA58A]" aria-hidden="true" />
+                  <span className="font-sans text-[9px] tracking-[0.22em] uppercase text-[#8FA58A] font-medium">
+                    Response Received
+                  </span>
+                </div>
                 <p className="font-serif italic text-sm sm:text-base text-[#2F3430]/85 tracking-wide text-center">
                   {selectedResponse === "yes"
                     ? "Thank you — we're so happy you'll be joining us."
                     : "Thank you for letting us know."}
                 </p>
                 <div 
-                  className="mt-2 w-8 h-[1px] bg-gradient-to-r from-transparent via-[#C9A96E]/40 to-transparent" 
+                  className="mt-2.5 w-8 h-[1px] bg-gradient-to-r from-transparent via-[#C9A96E]/40 to-transparent" 
                   aria-hidden="true" 
                 />
               </motion.div>

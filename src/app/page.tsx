@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { OpeningScreen } from "@/components/OpeningScreen";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -15,6 +15,40 @@ import { MusicControl } from "@/components/MusicControl";
 export default function Home() {
   const [isOpened, setIsOpened] = useState(false);
 
+  // Globally disable browser scroll restoration on fresh load / refresh
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
+  // Lock body scroll during ceremonial opening, then smoothly unlock at scroll position 0
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    if (!isOpened) {
+      document.body.style.overflow = "hidden";
+      window.scrollTo(0, 0);
+    } else {
+      document.body.style.overflow = "";
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpened]);
+
+  const handleOpen = () => {
+    setIsOpened(true);
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+  };
+
   return (
     <main className="relative min-h-screen bg-[#FAF7F2] text-[#2F3430] overflow-x-hidden selection:bg-[#C9A96E]/20 paper-atmosphere">
       {/* Discreet Background Music Control */}
@@ -23,7 +57,7 @@ export default function Home() {
       {/* Fullscreen Ceremonial Opening Screen */}
       <AnimatePresence>
         {!isOpened && (
-          <OpeningScreen onOpen={() => setIsOpened(true)} />
+          <OpeningScreen onOpen={handleOpen} />
         )}
       </AnimatePresence>
 

@@ -135,38 +135,40 @@ export function OpeningScreen({ onOpen }: OpeningScreenProps) {
                 )}
               </AnimatePresence>
 
-              {/* Flame Graphic */}
-              <div className="relative h-12 flex items-end justify-center">
+              {/* Flame Graphic & Static Wick Zone */}
+              <div className="relative w-8 h-12 flex items-end justify-center pointer-events-none">
+                {/* The Static Wick - strictly rendered when UNLIT; removed when lit so no black artifact remains */}
+                {!isLit && (
+                  <div
+                    className="w-[1.5px] h-3 bg-[#2F3430]/75 rounded-t-xs"
+                    aria-hidden="true"
+                  />
+                )}
+
+                {/* Pure Elegant Flame Graphic */}
                 <AnimatePresence>
                   {isLit && (
                     <motion.div
                       key="candle-flame"
-                      initial={{ scaleY: 0, scaleX: 0.2, opacity: 0, y: 6 }}
-                      animate={{ scaleY: 1, scaleX: 1, opacity: 1, y: 0 }}
+                      initial={{ scaleY: 0, scaleX: 0.2, opacity: 0 }}
+                      animate={{ scaleY: 1, scaleX: 1, opacity: 1 }}
                       transition={{
-                        duration: 0.9,
+                        duration: 0.8,
                         ease: [0.16, 1, 0.3, 1],
                       }}
-                      className="animate-flame relative flex flex-col items-center"
+                      className="absolute bottom-0 flex flex-col items-center origin-bottom animate-flame"
                     >
                       {/* Outer translucent golden flame envelope */}
-                      <div className="w-3.5 h-8 rounded-[50%_50%_40%_40%/70%_70%_30%_30%] bg-gradient-to-t from-[#C9A96E] via-[#F3EEE7] to-white shadow-[0_0_12px_2.5px_rgba(201,169,110,0.55)]" />
-                      {/* Inner warm core */}
-                      <div className="absolute bottom-0 w-1.5 h-3 rounded-full bg-gradient-to-t from-[#8FA58A]/35 via-[#C9A96E] to-white" />
+                      <div className="w-3.5 h-8 rounded-[50%_50%_40%_40%/70%_70%_30%_30%] bg-gradient-to-t from-[#C9A96E] via-[#F3EEE7] to-white shadow-[0_0_14px_3px_rgba(201,169,110,0.6)]" />
+                      {/* Inner warm radiant core */}
+                      <div className="absolute bottom-0.5 w-1.5 h-3.5 rounded-full bg-gradient-to-t from-[#C9A96E]/60 via-[#F3EEE7] to-white" />
                     </motion.div>
                   )}
                 </AnimatePresence>
-
-                {/* Fine Wick */}
-                <div
-                  className={`w-[1.5px] h-3 transition-colors duration-700 ${
-                    isLit ? "bg-[#2F3430]" : "bg-[#2F3430]/75"
-                  } rounded-t-xs`}
-                />
               </div>
 
-              {/* Candle Body */}
-              <div className="relative w-9 sm:w-10 h-24 sm:h-26 rounded-t-xs bg-gradient-to-r from-[#FAF7F2] via-[#FFFFFF] to-[#F3EEE7] shadow-[0_4px_14px_rgba(47,52,48,0.05)] border border-[#C9A96E]/25 flex flex-col items-center justify-between py-2.5 overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
+              {/* Candle Body - Completely Static */}
+              <div className="relative w-9 sm:w-10 h-24 sm:h-26 rounded-t-xs bg-gradient-to-r from-[#FAF7F2] via-[#FFFFFF] to-[#F3EEE7] shadow-[0_4px_14px_rgba(47,52,48,0.05)] border border-[#C9A96E]/25 flex flex-col items-center justify-between py-2.5 overflow-hidden">
                 {/* Candle Top Wax Rim */}
                 <div className="w-full h-1 bg-[#F3EEE7] border-b border-[#C9A96E]/15 rounded-full" />
                 
