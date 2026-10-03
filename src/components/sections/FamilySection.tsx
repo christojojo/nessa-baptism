@@ -1,12 +1,15 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { BotanicalSprig } from "../decorations/BotanicalSprig";
 import { GuardianAngelOrnament } from "../decorations/GuardianAngelOrnament";
 import { eventConfig } from "@/config/event";
 
 export function FamilySection() {
+  const parentsPhoto = eventConfig.parents.photoSrc || "/images/nessa-parents-closing.jpg";
+
   return (
     <section
       id="family"
@@ -37,13 +40,30 @@ export function FamilySection() {
         className="relative z-10 space-y-9 sm:space-y-11"
       >
         {/* Parents Group */}
-        <div className="space-y-2">
-          <span className="font-sans text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-[#8FA58A] font-medium block">
+        <div className="flex flex-col items-center">
+          <span className="font-sans text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-[#8FA58A] font-medium block mb-2">
             With love from
           </span>
           <p className="font-serif text-3xl sm:text-4xl text-[#2F3430] font-normal tracking-wide">
             {eventConfig.parents.father} &amp; {eventConfig.parents.mother}
           </p>
+
+          {/* Parents Photograph */}
+          <div className="my-5 sm:my-6 w-full flex justify-center">
+            <div className="relative w-full max-w-[230px] sm:max-w-[270px] p-2.5 sm:p-3 bg-white/95 rounded-xs border border-[#C9A96E]/30 shadow-[0_12px_30px_rgba(47,52,48,0.06)]">
+              <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[2px] bg-[#FAF7F2]">
+                <Image
+                  src={parentsPhoto}
+                  alt={`Parents ${eventConfig.parents.father} & ${eventConfig.parents.mother}`}
+                  fill
+                  sizes="(max-width: 640px) 230px, 270px"
+                  className="object-cover object-[center_20%]"
+                  quality={95}
+                />
+              </div>
+            </div>
+          </div>
+
           <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#2F3430]/45 font-light block">
             Parents
           </span>

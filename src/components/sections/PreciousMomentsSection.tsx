@@ -14,7 +14,7 @@ export function PreciousMomentsSection() {
     <section
       id="precious-moments"
       aria-label="Precious Moments"
-      className="relative py-14 sm:py-20 px-4 sm:px-6 max-w-xl md:max-w-3xl mx-auto text-center"
+      className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto text-center"
     >
       {/* Background Soft Ambient Cream Gradient Wash */}
       <div
@@ -40,150 +40,67 @@ export function PreciousMomentsSection() {
         </h2>
 
         {/* Supporting text */}
-        <p className="font-sans text-xs sm:text-sm text-[#2F3430]/70 font-light tracking-wide max-w-sm mx-auto mb-10 sm:mb-14">
+        <p className="font-sans text-xs sm:text-sm text-[#2F3430]/70 font-light tracking-wide max-w-sm mx-auto mb-8 sm:mb-12">
           {preciousMoments.supportingText}
         </p>
 
-        {/* Responsive Editorial Photo-Story Composition */}
-        <div className="w-full">
-          {/* DESKTOP ASYMMETRIC SPREAD (md and above) */}
-          <div className="hidden md:flex md:flex-row md:items-start md:justify-between md:gap-8 lg:gap-10">
-            {/* Visual Anchor: Full Baby Collage Artwork */}
-            <div className="w-[54%] flex flex-col items-center">
-              <div className="relative w-full p-3 bg-white/95 rounded-xs border border-[#C9A96E]/30 shadow-[0_12px_32px_rgba(47,52,48,0.06)] transition-transform duration-500 hover:scale-[1.01]">
-                <div className="relative w-full aspect-[900/1500] max-h-[520px] overflow-hidden rounded-[2px] bg-[#FAF7F2]">
-                  <Image
-                    src={galleryPhotos.collage}
-                    alt={`Precious moments baby collage of ${eventConfig.baby.childName}`}
-                    fill
-                    sizes="(max-width: 1024px) 420px, 460px"
-                    className="object-contain"
-                    quality={95}
-                    priority
-                  />
-                </div>
-              </div>
+        {/* Layered Editorial Magazine Photo-Story Composition */}
+        <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[490px] lg:max-w-[530px] mx-auto px-1 sm:px-2">
+          {/* 1. Large Hero Photo: Baby Collage (Dominant Anchor, No surrounding card/frame) */}
+          <div className="relative w-full z-0">
+            <div className="relative w-full aspect-[9/16] overflow-hidden rounded-[2px] shadow-[0_12px_36px_rgba(47,52,48,0.08)] bg-[#FAF7F2]">
+              <Image
+                src={galleryPhotos.collage}
+                alt={`Precious moments baby collage of ${eventConfig.baby.childName}`}
+                fill
+                sizes="(max-width: 640px) 340px, (max-width: 1024px) 490px, 530px"
+                className="object-contain"
+                quality={95}
+                priority
+              />
             </div>
+          </div>
 
-            {/* Supporting Editorial Column: Family & Black/White Portrait */}
-            <div className="w-[46%] flex flex-col justify-between self-stretch py-1">
-              {/* Supporting 1: Family Photograph */}
-              <div className="w-full max-w-[290px] ml-auto flex flex-col items-center">
-                <div className="relative w-full p-2.5 bg-white/95 rounded-xs border border-[#C9A96E]/25 shadow-[0_8px_24px_rgba(47,52,48,0.05)] transition-transform duration-500 hover:scale-[1.01]">
-                  <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[2px] bg-[#FAF7F2]">
-                    <Image
-                      src={galleryPhotos.family}
-                      alt={`${eventConfig.baby.childName} with parents`}
-                      fill
-                      sizes="300px"
-                      className="object-cover object-[center_30%]"
-                      quality={95}
-                    />
-                  </div>
-                </div>
-                <p className="font-serif italic text-xs text-[#2F3430]/75 tracking-wide mt-2.5 text-center">
-                  {preciousMoments.familyCaption}
-                </p>
-              </div>
-
-              {/* Delicate Connector Line */}
-              <div className="my-5 flex items-center justify-end pr-8 opacity-45" aria-hidden="true">
-                <div className="w-20 h-[1px] bg-gradient-to-l from-[#C9A96E]/60 to-transparent" />
-                <div className="w-1.5 h-1.5 rotate-45 border border-[#C9A96E] bg-white ml-2" />
-              </div>
-
-              {/* Supporting 2: Black-and-White Portrait */}
-              <div className="w-full max-w-[195px] ml-auto mr-4 flex flex-col items-center">
-                <div className="relative w-full p-2 bg-white/95 rounded-xs border border-[#C9A96E]/20 shadow-[0_6px_20px_rgba(47,52,48,0.05)] transition-transform duration-500 hover:scale-[1.01]">
-                  <div className="relative w-full aspect-[3/4] overflow-hidden rounded-[2px] bg-[#FAF7F2]">
-                    <Image
-                      src={galleryPhotos.portrait}
-                      alt={`Portrait of ${eventConfig.baby.childName}`}
-                      fill
-                      sizes="200px"
-                      className="object-cover object-center"
-                      quality={95}
-                    />
-                  </div>
-                </div>
-                <p className="font-serif italic text-xs text-[#2F3430]/75 tracking-wide mt-2 text-center">
-                  {preciousMoments.portraitCaption}
-                </p>
+          {/* 2. Medium Family Photo: Layered / Offset toward the RIGHT side (overlaps bottom-right) */}
+          <div className="relative z-10 w-[58%] sm:w-[52%] md:w-[48%] max-w-[240px] sm:max-w-[270px] md:max-w-[300px] ml-auto mr-1 sm:mr-3 md:mr-4 -mt-16 sm:-mt-22 md:-mt-28">
+            <div className="p-1.5 sm:p-2 md:p-2.5 bg-white/95 rounded-[2px] border border-[#C9A96E]/30 shadow-[0_10px_28px_rgba(47,52,48,0.12)] rotate-[1.5deg] sm:rotate-[2deg] transition-transform duration-300 hover:rotate-0">
+              <div className="relative w-full aspect-[1090/1381] overflow-hidden rounded-[1px] bg-[#FAF7F2]">
+                <Image
+                  src={galleryPhotos.family}
+                  alt={`${eventConfig.baby.childName} with parents`}
+                  fill
+                  sizes="(max-width: 640px) 240px, 300px"
+                  className="object-cover object-[center_20%]"
+                  quality={95}
+                />
               </div>
             </div>
           </div>
 
-          {/* MOBILE SEQUENTIAL ALBUM STORY (< md) */}
-          <div className="md:hidden flex flex-col items-center w-full">
-            {/* 1. Main Anchor Photograph: Baby Collage */}
-            <div className="w-full max-w-[285px] sm:max-w-[315px] flex flex-col items-center">
-              <div className="relative w-full p-2.5 bg-white/95 rounded-xs border border-[#C9A96E]/30 shadow-[0_8px_24px_rgba(47,52,48,0.06)]">
-                <div className="relative w-full aspect-[900/1450] max-h-[390px] overflow-hidden rounded-[2px] bg-[#FAF7F2]">
-                  <Image
-                    src={galleryPhotos.collage}
-                    alt={`Precious moments baby collage of ${eventConfig.baby.childName}`}
-                    fill
-                    sizes="(max-width: 640px) 315px, 350px"
-                    className="object-contain"
-                    quality={95}
-                    priority
-                  />
-                </div>
+          {/* 3. Small Black-and-White Portrait: Offset toward the LEFT side below */}
+          <div className="relative z-20 w-[42%] sm:w-[38%] md:w-[34%] max-w-[170px] sm:max-w-[195px] md:max-w-[215px] mr-auto ml-1 sm:ml-3 md:ml-4 -mt-10 sm:-mt-14 md:-mt-18">
+            <div className="p-1.5 sm:p-2 bg-white/95 rounded-[2px] border border-[#C9A96E]/25 shadow-[0_8px_24px_rgba(47,52,48,0.10)] -rotate-[2deg] sm:-rotate-[2.5deg] transition-transform duration-300 hover:rotate-0">
+              <div className="relative w-full aspect-[9/16] overflow-hidden rounded-[1px] bg-[#FAF7F2]">
+                <Image
+                  src={galleryPhotos.portrait}
+                  alt={`Portrait of ${eventConfig.baby.childName}`}
+                  fill
+                  sizes="(max-width: 640px) 170px, 215px"
+                  className="object-cover object-center"
+                  quality={95}
+                />
               </div>
-            </div>
-
-            {/* Subtle Editorial Breathing Divider */}
-            <div className="flex items-center justify-center my-7 sm:my-8 opacity-40" aria-hidden="true">
-              <div className="w-10 h-[1px] bg-gradient-to-r from-transparent via-[#C9A96E] to-transparent" />
-            </div>
-
-            {/* 2. Family Photograph */}
-            <div className="w-full max-w-[245px] sm:max-w-[270px] flex flex-col items-center">
-              <div className="relative w-full p-2 bg-white/95 rounded-xs border border-[#C9A96E]/25 shadow-[0_6px_20px_rgba(47,52,48,0.05)]">
-                <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[2px] bg-[#FAF7F2]">
-                  <Image
-                    src={galleryPhotos.family}
-                    alt={`${eventConfig.baby.childName} with parents`}
-                    fill
-                    sizes="(max-width: 640px) 270px, 300px"
-                    className="object-cover object-[center_30%]"
-                    quality={95}
-                  />
-                </div>
-              </div>
-              <p className="font-serif italic text-xs text-[#2F3430]/75 tracking-wide mt-2.5 text-center">
-                {preciousMoments.familyCaption}
-              </p>
-            </div>
-
-            {/* Subtle Editorial Breathing Divider */}
-            <div className="flex items-center justify-center my-7 sm:my-8 opacity-40" aria-hidden="true">
-              <div className="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#C9A96E] to-transparent" />
-            </div>
-
-            {/* 3. Black-and-White Portrait */}
-            <div className="w-full max-w-[180px] sm:max-w-[200px] flex flex-col items-center">
-              <div className="relative w-full p-1.5 sm:p-2 bg-white/95 rounded-xs border border-[#C9A96E]/20 shadow-[0_4px_16px_rgba(47,52,48,0.04)]">
-                <div className="relative w-full aspect-[3/4] overflow-hidden rounded-[2px] bg-[#FAF7F2]">
-                  <Image
-                    src={galleryPhotos.portrait}
-                    alt={`Portrait of ${eventConfig.baby.childName}`}
-                    fill
-                    sizes="(max-width: 640px) 200px, 220px"
-                    className="object-cover object-center"
-                    quality={95}
-                  />
-                </div>
-              </div>
-              <p className="font-serif italic text-xs text-[#2F3430]/75 tracking-wide mt-2 text-center">
-                {preciousMoments.portraitCaption}
-              </p>
             </div>
           </div>
+
+          {/* Subtle Editorial Caption */}
+          <p className="font-serif italic text-xs sm:text-[13px] text-[#2F3430]/70 tracking-wide mt-6 sm:mt-8 text-center max-w-xs mx-auto">
+            {preciousMoments.familyCaption}
+          </p>
         </div>
 
         {/* Delicate Printed Botanical Flourish at section end */}
-        <div className="mt-12 sm:mt-16 opacity-75">
+        <div className="mt-10 sm:mt-14 opacity-75">
           <BotanicalSprig variant="horizontal" className="w-24 sm:w-28" />
         </div>
       </motion.div>
