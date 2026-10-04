@@ -11,6 +11,7 @@ import { FamilySection } from "@/components/sections/FamilySection";
 import { AttendanceSection } from "@/components/sections/AttendanceSection";
 import { ClosingSection } from "@/components/sections/ClosingSection";
 import { MusicControl } from "@/components/MusicControl";
+import { BackToTop } from "@/components/BackToTop";
 
 export default function Home() {
   const [isOpened, setIsOpened] = useState(false);
@@ -53,6 +54,9 @@ export default function Home() {
     <main className="relative min-h-screen bg-[#FAF7F2] text-[#2F3430] overflow-x-hidden selection:bg-[#C9A96E]/20 paper-atmosphere">
       {/* Discreet Background Music Control */}
       <MusicControl isOpened={isOpened} />
+
+      {/* Subtle Stationery Back To Top Control */}
+      <BackToTop isOpened={isOpened} />
 
       {/* Fullscreen Ceremonial Opening Screen */}
       <AnimatePresence>
@@ -102,9 +106,7 @@ export default function Home() {
         </motion.div>
 
         {/* Bottom Ambient Margin */}
-        <div className="pb-12 text-center" aria-hidden="true">
-          <div className="w-12 h-[1px] bg-[#C9A96E]/40 mx-auto" />
-        </div>
+        <div className="pb-8 sm:pb-10" aria-hidden="true" />
       </div>
     </main>
   );
