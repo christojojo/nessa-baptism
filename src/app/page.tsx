@@ -52,11 +52,11 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen bg-[#FAF7F2] text-[#2F3430] overflow-x-hidden selection:bg-[#C9A96E]/20 paper-atmosphere">
-      {/* Discreet Background Music Control */}
-      <MusicControl isOpened={isOpened} />
-
-      {/* Subtle Stationery Back To Top Control */}
-      <BackToTop isOpened={isOpened} />
+      {/* Floating Controls Group: Back-to-Top stacked 8px above Music */}
+      <div className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] right-[calc(1.25rem+env(safe-area-inset-right,0px))] sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2 select-none pointer-events-none">
+        <BackToTop isOpened={isOpened} />
+        <MusicControl isOpened={isOpened} />
+      </div>
 
       {/* Fullscreen Ceremonial Opening Screen */}
       <AnimatePresence>
